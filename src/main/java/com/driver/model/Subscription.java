@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.Date;
+import org.hibernate.annotations.CreationTimestamp;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 @Entity
 @Table
@@ -18,10 +21,12 @@ public class Subscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Enumerated(EnumType.STRING)
     private SubscriptionType subscriptionType;
 
     private int noOfScreensSubscribed;
 
+    @CreationTimestamp
     private Date startSubscriptionDate;
 
     private int totalAmountPaid;
